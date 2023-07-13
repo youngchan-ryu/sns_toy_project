@@ -12,6 +12,8 @@
     <button onclick="window.location.href='/signup'">회원가입</button>
     <button onclick="window.location.href='/login'">로그인</button>
     <button onclick="window.location.href='/logout'">로그아웃</button>
+    <br>
+    <button onclick="window.location.href='/posts/new'">새로운 글쓰기</button>
 
 {% load static %}
 
@@ -20,7 +22,9 @@
 {% if posts_list %}
     <ol>
     {% for post in posts_list %}
-        <li><a href="{% url 'posts:posts_detail' post.id %}">{{ post.title }}</a></li>
+        <li><a href="{% url 'posts:posts_detail' post.id %}">{{ post.title }}</a><br>
+            {{ post.content|slice:":20" }}<br>
+            {{ post.created_at.date }}</li>
     {% endfor %}
     </ol>
 {% else %}

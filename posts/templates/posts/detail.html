@@ -13,6 +13,8 @@
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         <p>Contents:<br>{{ object.content }}</p>
     </fieldset>
+    <button onclick="window.location.href='/posts/{{ object.id }}/edit'">수정하기</button>
+    <button onclick="window.location.href='/posts/{{ object.id }}/delete'">삭제하기</button>
     <button onclick="window.location.href='/posts'">홈으로</button>
     </form>
 </body>
