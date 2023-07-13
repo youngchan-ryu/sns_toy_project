@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME for SNS_clone</title>
+</head>
+<body>
+    <h1>Threads</h1>
+    {% if user.is_authenticated %}
+        <p>안녕하세요 {{ user.username }}님! </p>
+    {% endif %}
+    <button onclick="window.location.href='/signup'">회원가입</button>
+    <button onclick="window.location.href='/login'">로그인</button>
+    <button onclick="window.location.href='/logout'">로그아웃</button>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'posts/style.css' %}">
+
+{% if posts_list %}
+    <ol>
+    {% for post in posts_list %}
+        <li><a href="{% url 'posts:posts_detail' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>쓰레드가 없어요.</p>
+{% endif %}
+
+</body>
+</html>

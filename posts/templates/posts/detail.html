@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post #{{ object.id }}</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h1>{{ object.title }}</h1></legend>
+        <p>게시 날짜 : {{ object.created_at }}</p>
+        <p>마지막 업데이트 : {{ object.updated_at }}</p>
+        <p>작성자 : {{ object.owner }}</p>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <p>Contents:<br>{{ object.content }}</p>
+    </fieldset>
+    <button onclick="window.location.href='/posts'">홈으로</button>
+    </form>
+</body>
+</html>
